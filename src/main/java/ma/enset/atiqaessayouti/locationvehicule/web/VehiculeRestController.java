@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/vehicules")
 @AllArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin("*") // مهم جداً للسماح لـ Angular بالوصول
 @Tag(name = "2. Gestion des Véhicules et Locations", description = "APIs pour louer et rechercher des véhicules")
 public class VehiculeRestController {
 
@@ -22,7 +22,7 @@ public class VehiculeRestController {
 
     @Operation(summary = "Véhicules disponibles", description = "Retourne uniquement les véhicules prêts à être loués")
     @GetMapping("/disponibles")
-    @PreAuthorize("hasAnyRole('CLIENT', 'EMPLOYE', 'ADMIN')")
+    // حيدنا @PreAuthorize من هنا باش الداتا تبان فـ Angular بلا Login دابا
     public List<VehiculeDTO> getVehiculesDisponibles() {
         return locationService.getVehiculesDisponibles();
     }

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header text-white bg-primary text-center">
+      <h3 class="mb-0">🚗 Flotte de Véhicules Disponibles</h3>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+          <tr>
+            <th class="ps-4">Marque</th>
+            <th>Modèle</th>
+            <th class="text-center">Prix / Jour</th>
+            <th class="text-center pe-4">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let v of vehicules">
+            <td class="ps-4 fw-bold text-dark">{{v.marque}}</td>
+            <td>{{v.modele}}</td>
+            <td class="text-center"><span class="price-tag fw-bold">{{v.prixParJour}} DH</span></td>
+            <td class="text-center pe-4">
+              <button class="btn btn-success shadow-sm">Louer</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="vehicules.length === 0" class="p-5 text-center">
+        <div class="spinner-border text-primary mb-3"></div>
+        <p class="text-muted">Connexion au serveur Spring Boot...</p>
+      </div>
+    </div>
+  </div>
+</div>
