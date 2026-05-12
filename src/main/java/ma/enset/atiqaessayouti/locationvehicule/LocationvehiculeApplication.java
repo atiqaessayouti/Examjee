@@ -71,7 +71,7 @@ public class LocationvehiculeApplication {
 
             Location location = Location.builder()
                     .dateDebut(new Date())
-                    .dateFin(new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3))) // 3 أيام
+                    .dateFin(new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 3)))
                     .nomClient("Ahmed El Mansouri")
                     .prixTotal(350.0 * 3)
                     .vehicule(voiture)
@@ -79,11 +79,12 @@ public class LocationvehiculeApplication {
 
             locationRepository.save(location);
 
-            // تحديث حالة السيارة لتصبح مكرية
+              
             voiture.setStatut(StatutVehicule.LOUE);
             vehiculeRepository.save(voiture);
 
             System.out.println("done");
+              System.out.println("done");
         };
     }
 }
